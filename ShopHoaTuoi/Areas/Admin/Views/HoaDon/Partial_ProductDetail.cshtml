@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ShopHoaTuoi.Models.EF.CTHD>
+@using ShopHoaTuoi.Common
+@if (Model != null && Model.Any())
+{
+    int i = 1;
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @{
+                var db = new ShopHoaTuoi.Models.EF.ShopHoaTuoiEntities();
+                var listhd = (from hd in db.HOADONs
+                              join ct in db.CTHDs
+                              on hd.mahd equals ct.mahd
+                              join h in db.HOAs
+                              on ct.mahoa equals h.mahoa
+                              select new
+                              {
+                                  h.tenhoa,
+                                  h.giaban,
+                                  ct.soluong,
+                                  ct.tongtien,
+                                  hd.mahd
+                              }).Distinct().ToList();
+            }
+                @foreach (var item in listhd)
+                {
+                    foreach (var m in Model)
+                    {
+                        if (m.mahd == item.mahd)
+                        {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.tenhoa</td>
+                        <td>@item.giaban</td>
+                        <td>@item.soluong</td>
+                        <td>@Common.FormatNumber(item.tongtien, 0)</td>
+                    </tr>
+                            i++;
+                        }
+                    }
+                }
+            </tbody>
+    </table>
+}
+
+

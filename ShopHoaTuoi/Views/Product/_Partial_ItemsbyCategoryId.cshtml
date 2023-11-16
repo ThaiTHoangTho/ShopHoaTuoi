@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ShopHoaTuoi.Models.EF.HOA>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        /* var strImge = "";
+         var img = item.ProductImage.FirstOrDefault(x => x.IsDefault);
+         if (img != null)
+         {
+             strImge = img.Image;
+         }*/
+        <div class="product-item @item.LOAIHOA.maloai">
+            <div class="product discount product_filter">
+                <div class="product_image">
+                    <img src="@item.anh" alt="@item.tenhoa">
+                </div>
+                <div class="favorite favorite_left"></div>
+                <div class="product_info">
+                    <h6 class="product_name"><a href="/product/detail/@(item.mahoa)">@item.tenhoa</a></h6>
+                    <div class="product_price">@ShopHoaTuoi.Common.Common.FormatNumber(item.giaban, 0)</div>
+
+                </div>
+            </div>
+            <div class="red_button add_to_cart_button"><a href="#" class="btnAddtocart" data-id="@item.mahoa">add to cart</a></div>
+        </div>
+
+    }
+}
