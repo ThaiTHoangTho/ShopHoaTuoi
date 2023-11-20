@@ -41,7 +41,7 @@ namespace ShopHoaTuoi.Models
             var checkExits = Items.SingleOrDefault(x => x.mahoa == id);
             if (checkExits != null)
             {
-                checkExits.soluong += quantity;
+                checkExits.soluong = quantity;
                 checkExits.tongtien = checkExits.giaban * checkExits.soluong;
             }
 

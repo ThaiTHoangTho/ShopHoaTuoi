@@ -45,22 +45,23 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh sách @ViewBag.Title</h3>
+            <h3 class="card-title">@ViewBag.Title</h3>
 
             <div class="card-tools">
                 <a href="/admin/hoa/add" class="btn btn-outline-primary">Thêm mới</a>
                
             </div>
         </div>
-            <table class="table table-hover">
+            <table class="table table-hover" style="text-align:center">
                 <thead>
-                    <tr>
+                    <tr style="text-align:center">
                         <th>STT</th>
                         <th>Tên hoa</th>
                         <th>Loại hoa</th>
                         <th>Hình ảnh</th>
                         <th>Giá</th>
                         <th>Mô tả</th>
+                        <th>Bán chạy</th>
                         <th>Tác vụ</th>
                     </tr>
                 </thead>
@@ -70,15 +71,19 @@
                         var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
                         foreach (var item in Model)
                         {
+                            var check = item.banchay ? "<i class='fa fa-check text-success'></i>" : "<i class='fas fa-times text-danger'></i>";
 
                             <tr id="trow_@item.mahoa">
                                 <td>@i</td>
                                 <td>@item.tenhoa</td>
                                 <td>@item.LOAIHOA.tenloai</td>
                                 <td><img class="imgproduct" data-id="@item.mahoa" src="@item.anh" width="50" /></td>
-                              
+
                                 <td>@ShopHoaTuoi.Common.Common.FormatNumber(item.giaban, 0)</td>
                                 <td>@item.mota</td>
+                                <td class="text-center">
+                                    <a href='#' data-id="@item.mahoa" class="btnHot">@Html.Raw(check)</a>
+                                </td>
                                 <td>
                                     <a href="/admin/hoa/edit/@item.mahoa" class="btn btn-sm btn-outline-info">Sửa</a>
                                     <a href="#" data-id="@item.mahoa" class="btn btn-sm btn-outline-danger btnDelete">Xóa</a>
@@ -155,6 +160,28 @@
                         }
                     });
                 }
+            });
+            $('body').on('click', '.btnHot', function (e) {
+                e.preventDefault();
+                var btn = $(this);
+                var id = btn.data("id");
+                $.ajax({
+                    url: '/admin/hoa/IsHot',
+                    type: 'POST',
+                    data: { id: id },
+                    success: function (rs) {
+                        if (rs.success) {
+                            if (rs.IsHot) {
+                                btn.html("<i class='fa fa-check text-success'></i>");
+                                //$(this).find("i").removeClass("fas fa-times text-danger")
+                                //$(this).find("i").addClass("fa fa-check text-success");
+                            } else {
+                                btn.html("<i class='fas fa-times text-danger'></i>");
+                            }
+                        }
+
+                    }
+                });
             });
         });
     </script>

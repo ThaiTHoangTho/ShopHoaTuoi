@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShopHoaTuoi.Models.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace ShopHoaTuoi.Controllers
 {
     public class HomeController : Controller
     {
+        private ShopHoaTuoiEntities db= new ShopHoaTuoiEntities();
         public ActionResult Index()
         {
             return View();
@@ -30,5 +32,6 @@ namespace ShopHoaTuoi.Controllers
         {
             return PartialView();
         }
+
     }
 }

@@ -57,48 +57,52 @@
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(x => x.manv)
                     <!-- your steps content here -->
-                    <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên nhân viên</label>
-                            @Html.TextBoxFor(x => x.tennv, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.tennv, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Chức vụ</label>
-                            @Html.DropDownListFor(x => x.chucvu, new SelectList(Enum.GetValues(typeof(ShopHoaTuoi.Models.EF.ChucVu))),
-                             "Chọn chức vụ", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.chucvu, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Địa chỉ</label>
-                            @Html.TextBoxFor(x => x.diachi, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.diachi, null, new { @class = "text-danger" })
-                        </div>  <div class="form-group">
-                            <label for="exampleInputEmail1">Số điện thoại</label>
-                            @Html.TextBoxFor(x => x.sdt, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.sdt, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Ngày sinh</label>
-                            @Html.TextBoxFor(x => x.ngaysinh, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.ngaysinh, null, new { @class = "text-danger" })
-
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.email, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Lương</label>
-                            @Html.TextBoxFor(x => x.luong, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x => x.luong, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <a href="/admin/nhanvien" class="btn btn-outline-danger">Quay lại</a>
-                            <button type="submit" class="btn btn-outline-success">Lưu</button>
-                        </div>
+                <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tên nhân viên</label>
+                        @Html.TextBoxFor(x => x.tennv, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.tennv, null, new { @class = "text-danger" })
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Địa chỉ</label>
+                        @Html.TextBoxFor(x => x.diachi, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.diachi, null, new { @class = "text-danger" })
+                    </div>  <div class="form-group">
+                        <label for="exampleInputEmail1">Số điện thoại</label>
+                        @Html.TextBoxFor(x => x.sdt, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.sdt, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ngày sinh</label>
+                        @Html.TextBoxFor(x => x.ngaysinh, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.ngaysinh, null, new { @class = "text-danger" })
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.email, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Lương</label>
+                        @Html.TextBoxFor(x => x.luong, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.luong, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Tên đăng nhập</label>
+                        @Html.TextBoxFor(x => x.tendangnhap, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.tendangnhap, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mật khẩu</label>
+                        @Html.TextBoxFor(x => x.matkhau, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.matkhau, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <a href="/admin/nhanvien" class="btn btn-outline-danger">Quay lại</a>
+                        <button type="submit" class="btn btn-outline-success">Lưu</button>
+                    </div>
+                </div>
 
                 }
 

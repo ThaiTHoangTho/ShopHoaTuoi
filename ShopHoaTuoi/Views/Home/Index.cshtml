@@ -4,35 +4,17 @@
 <link href="~/Content/assets/styles/main_styles.css" rel="stylesheet" />
 
 
-
-
-<!-- Slider -->
-<div class="main_slider" style=" background-image: url('../../content/assets/image/3b4c8f4470316ee3d12723082ef73fa3.jpg'); ">
-    <div class="container fill_height">
-        <div class="row align-items-center fill_height">
-            <div class="col">
-                <div class="main_slider_content">
-                   @* <h6>HighKAT_Flower</h6>*@
-                   @* <h1>Giảm giá đến 30%</h1>
-                    <div class="red_button shop_now_button"><a href="#">shop now</a></div>*@
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Banner-->@**@
-@*
-    @Html.Action("MenuProductCategory", "Menu")*@
+@Html.Action("Partial_ProductsHot", "Product")
 
 <!-- New Arrivals -->
 
 <div class="new_arrivals">
     <div class="container">
-        
-            @Html.Action("MenuArrivals", "Menu")
+
+        @Html.Action("MenuArrivals", "Menu")
+    </div>
 </div>
-</div>
+
 
 <!-- Benefit -->
 

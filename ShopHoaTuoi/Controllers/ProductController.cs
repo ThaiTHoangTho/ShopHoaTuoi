@@ -55,6 +55,18 @@ namespace ShopHoaTuoi.Controllers
             var items = db.HOAs.ToList();
             return PartialView("_Partial_ItemsbyCategoryId", items);
         }
-        
+        public ActionResult Partial_ProductsHot()
+        {
+            var items = db.HOAs.Where(p => p.banchay == true).Take(12).ToList();
+            return PartialView("_Partial_ProductsHot", items);
+        }
+        public ActionResult Search(string keyword)
+        {
+            // Lấy danh sách sản phẩm từ cơ sở dữ liệu
+            var products = db.HOAs.Where(x => x.tenhoa.Contains(keyword)).ToList();
+
+            // Trả về danh sách sản phẩm
+            return View(products);
+        }
     }
 }

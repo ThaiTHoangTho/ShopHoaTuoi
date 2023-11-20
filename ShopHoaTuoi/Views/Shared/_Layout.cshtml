@@ -36,62 +36,7 @@
 
         <!-- Header -->
 
-        <header class="header trans_300" >
-
-            <!-- Top Navigation -->
-
-            <div class="top_nav" style="background-color: #E1CFBB ">
-                <div class="container">
-                    <div class="row">
-                        @* <div class="col-md-6">
-            <div class="top_nav_left">Miễn phí giao hàng trong phạm vi 5km</div>
-        </div>
-        <div class="col-md-6 text-right">
-            <div class="top_nav_right">
-                <ul class="top_nav_menu">
-                    <li class="account">
-                        @if (!Request.IsAuthenticated)
-                        {
-                            <a href="#">
-                                Tài khoản
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="account_selection">
-                                <li><a href="/account/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                <li><a href="/account/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-                            </ul>
-                        }
-                        else
-                        {
-                            <a href="#">
-                                Xin chào: @User.Identity.Name
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                            <ul class="account_selection">
-                                <li><a href="/"><i class="fa fa-sign-in" aria-hidden="true"></i>Hồ sơ</a></li>
-                                <li><a href="javascript:document.getElementById('logOffForm').submit()"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
-                            </ul>
-                        }
-
-                    </li>
-                </ul>
-            </div>
-            @if (Request.IsAuthenticated)
-            {
-                <div style="display:none">
-                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
-                    {
-                        @Html.AntiForgeryToken()}
-                </div>}
-                                </div>*@
-                       
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Main Navigation -->
-
+        <header >
             <div class="main_nav_container" style="background-color: #E1CFBB " >
                 <div class="container">
                     <div class="row">
@@ -100,16 +45,31 @@
                                 <a href="/"><span style="font-family: 'Merienda', cursive; color:saddlebrown">HIGHKAT FLOWER</span></a>
                             </div>
                             <nav class="navbar">
-                                <ul class="navbar_menu"style="font-family: 'Baloo 2', cursive;">
+                                <ul class="navbar_menu" style="font-family: 'Baloo 2', cursive;">
                                     <li><a href="/">Trang chủ</a></li>
                                     <li><a href="/product">Hoa</a></li>
                                     <li><a href="/gioithieu">Giới thiệu</a></li>
-                                    <li><a href="#">Bài viết</a></li>
                                     <li><a href="/contact">Liên hệ</a></li>
                                 </ul>
                                 <ul class="navbar_user">
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                    <li><a href="/account/login"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                                    <li>
+                                      @*  <form action="/Product/Search" method="post">
+                                            <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm"  class="form-control form-inline">
+                                            <input type="submit" value="Tìm kiếm">
+                                        </form>*@
+
+                                        <form action="/Product/Search" method="post">
+                                            <div class="form-group form-inline">
+                                                <input placeholder="Tìm kiếm" name="keyword" class="form-control form-inline" />
+                                                
+                                                <button type="submit" class="btn btn-outline-light btn-search">
+                                                    <i class="fa fa-search"  aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                
+                                    <li><a href="/admin/login"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                                     <li class="checkout">
                                         <a href="/shoppingcart">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -155,6 +115,18 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="tg_contact_fixed_2021">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/highkat" data-toggle="tooltip" data-html="true" target="_blank" data-placement="left" title="
+                    Chat Messenger" data-original-title="Messenger" data-wpel-link="external" rel="nofollow">
+                                <img src="~/Content/assets/image/iconmess.png" width="50px" />
+
+                                <span class="aml-text-content aml-tooltiptext">Liên hệ qua Messenger</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

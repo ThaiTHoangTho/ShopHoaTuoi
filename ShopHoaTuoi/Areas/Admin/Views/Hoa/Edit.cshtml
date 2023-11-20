@@ -97,6 +97,14 @@
                                             @Html.TextAreaFor(x => x.mota, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(x => x.mota, null, new { @class = "text-danger" })
                                         </div>
+                                        <div class="col-3">
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    @Html.CheckBoxFor(x => x.banchay, new { @class = "custom-control-input", @id = "IsHotCheckbox2" })
+                                                    <label for="IsHotCheckbox2" class="custom-control-label">Bán chạy</label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- /.tab-pane -->
                                 </div>

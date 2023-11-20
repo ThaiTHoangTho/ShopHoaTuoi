@@ -81,6 +81,20 @@ namespace ShopHoaTuoi.Areas.Admin.Controllers
 
             return Json(new { success = false });
         }
+        [HttpPost]
+        public ActionResult IsHot(int id)
+        {
+            var item = db.HOAs.Find(id);
+            if (item != null)
+            {
+                item.banchay = !item.banchay;
+                db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return Json(new { success = true, IsHot = item.banchay });
+            }
+
+            return Json(new { success = false });
+        }
 
     }
 }
